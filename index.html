@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Encryption Program</title>
+</head>
+<body>
+<script>
+function shuffleLettersInWord(word) {
+  const letters = word.split('');
+  for (let i = 1; i < letters.length - 1; i++) {
+    const randomIndex = Math.floor(Math.random() * (letters.length - 2)) + 1;
+    [letters[i], letters[randomIndex]] = [letters[randomIndex], letters[i]];
+  }
+  return letters.join('');
+}
+function encryptText(inputText) {
+  const words = inputText.split(' ');
+  const encryptedWords = words.map(word => shuffleLettersInWord(word));
+  return encryptedWords.join(' ');
+}
+const inputText = "Hello, World!";
+const encryptedText = encryptText(inputText);
+document.write(`Вхідний текст: ${inputText}<br>`);
+document.write(`Зашифрований текст: ${encryptedText}`);
+</script>
+</body>
+</html>
